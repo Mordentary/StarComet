@@ -79,74 +79,74 @@ namespace StarComet.Content.src
             UpdateMatrix();
 
             Vector2 cameraMovement = Vector2.Zero;
-            int moveSpeed;
+            //int moveSpeed;
 
       
 
-            if (Zoom > .8f)
-            {
-                moveSpeed = 15;
-            }
-            else if (Zoom < .8f && Zoom >= .6f)
-            {
-                moveSpeed = 20;
-            }
-            else if (Zoom < .6f && Zoom > .35f)
-            {
-                moveSpeed = 25;
-            }
-            else if (Zoom <= .35f)
-            {
-                moveSpeed = 30;
-            }
-            else
-            {
-                moveSpeed = 10;
-            }
+            //if (Zoom > .8f)
+            //{
+            //    moveSpeed = 15;
+            //}
+            //else if (Zoom < .8f && Zoom >= .6f)
+            //{
+            //    moveSpeed = 20;
+            //}
+            //else if (Zoom < .6f && Zoom > .35f)
+            //{
+            //    moveSpeed = 25;
+            //}
+            //else if (Zoom <= .35f)
+            //{
+            //    moveSpeed = 30;
+            //}
+            //else
+            //{
+            //    moveSpeed = 10;
+            //}
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Up))
-            {
-                cameraMovement.Y = -moveSpeed;
-            }
+            //if (Keyboard.GetState().IsKeyDown(Keys.Up))
+            //{
+            //    cameraMovement.Y = -moveSpeed;
+            //}
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Down))
-            {
-                cameraMovement.Y = moveSpeed;
-            }
+            //if (Keyboard.GetState().IsKeyDown(Keys.Down))
+            //{
+            //    cameraMovement.Y = moveSpeed;
+            //}
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Left))
-            {
-                cameraMovement.X = -moveSpeed;
-            }
+            //if (Keyboard.GetState().IsKeyDown(Keys.Left))
+            //{
+            //    cameraMovement.X = -moveSpeed;
+            //}
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Right))
-            {
-                cameraMovement.X = moveSpeed;
-            }
+            //if (Keyboard.GetState().IsKeyDown(Keys.Right))
+            //{
+            //    cameraMovement.X = moveSpeed;
+            //}
 
-            previousMouseWheelValue = currentMouseWheelValue;
-            currentMouseWheelValue = Mouse.GetState().ScrollWheelValue;
+            //previousMouseWheelValue = currentMouseWheelValue;
+            //currentMouseWheelValue = Mouse.GetState().ScrollWheelValue;
 
-            if (currentMouseWheelValue > previousMouseWheelValue)
-            {
-                AdjustZoom(.05f);
-                Console.WriteLine(moveSpeed);
-            }
+            //if (currentMouseWheelValue > previousMouseWheelValue)
+            //{
+            //    AdjustZoom(.05f);
+            //    Console.WriteLine(moveSpeed);
+            //}
 
-            if (currentMouseWheelValue < previousMouseWheelValue)
-            {
-                AdjustZoom(-.05f);
-                Console.WriteLine(moveSpeed);
-            }
+            //if (currentMouseWheelValue < previousMouseWheelValue)
+            //{
+            //    AdjustZoom(-.05f);
+            //    Console.WriteLine(moveSpeed);
+            //}
 
-            previousZoom = zoom;
-            zoom = Zoom;
-            if (previousZoom != zoom)
-            {
-                Console.WriteLine(zoom);
-            }
+            //previousZoom = zoom;
+            //zoom = Zoom;
+            //if (previousZoom != zoom)
+            //{
+            //    Console.WriteLine(zoom);
+            //}
 
-            MoveCamera(cameraMovement);
+            //MoveCamera(cameraMovement);
           
         }
     }

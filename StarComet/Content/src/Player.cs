@@ -83,7 +83,7 @@ namespace StarComet.Content.src
                 _acceleration = MaxSpeed;
             }
 
-            if (!Limit)
+            if (!Limit && !IsDead)
             {
                 if (Keyboard.GetState().IsKeyDown(Keys.Space))
                 {
@@ -129,21 +129,21 @@ namespace StarComet.Content.src
                 this.VelocityY = Direction.Y * (float)gameTime.ElapsedGameTime.TotalMilliseconds * _acceleration / 30;
 
                 this.Position = new Vector2(this.Position.X + this.VelocityX, this.Position.Y + this.VelocityY);
-            }
 
-            if (_currentKey.IsKeyDown(Keys.V) && _previousKey.IsKeyUp(Keys.V) && CountOfBullet > 0)
-            {
-                Shoot();
+                if (_currentKey.IsKeyDown(Keys.V) && _previousKey.IsKeyUp(Keys.V) && CountOfBullet > 0)
+                {
+                    Shoot();
+                }
+                _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (_currentKey.IsKeyDown(Keys.B) && _previousKey.IsKeyUp(Keys.B) && _timer > 3)
+                {
+                    _shieldBelt.InitialiseShield();
+                    _timer = 0;
+                }
             }
-            _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (_currentKey.IsKeyDown(Keys.B) && _previousKey.IsKeyUp(Keys.B) && _timer > 3)
-            {
-                _shieldBelt.InitialiseShield();
-                _timer = 0;
-            }
-            _shieldBelt.Update(this);
-            UpdateBullets(gameTime);
-            _limit.CheckPlayerLimit(this, 100000);
+                _shieldBelt.Update(this);
+                UpdateBullets(gameTime);
+                _limit.CheckPlayerLimit(this, 100000);
             
         }
 
